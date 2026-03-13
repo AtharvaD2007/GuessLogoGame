@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Logo Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="timer-box">
+        ⏱ <span id="timer">20</span>s
+    </div>
+
+    <div class="game-info">
+        <div>👤 <span id="player">Player</span></div>
+        <div>🎮 Level: <span id="currentLevel">1</span></div>
+        <div>⭐ Score: <span id="score">0</span></div>
+        <div>🔥 Streak: <span id="streak">0</span></div>
+        <div>💡 Hints: <span id="hintCount">3</span></div>
+    </div>
+
+    <div class="level-panel">
+
+        <div id="level1" class="level-box active">1</div>
+        <div id="level2" class="level-box locked">🔒</div>
+        <div id="level3" class="level-box locked">🔒</div>
+        <div id="level4" class="level-box locked">🔒</div>
+        <div id="level5" class="level-box locked">🔒</div>
+        <div id="level6" class="level-box locked">🔒</div>
+        <div id="level7" class="level-box locked">🔒</div>
+        <div id="level8" class="level-box locked">🔒</div>
+        <div id="level9" class="level-box locked">🔒</div>
+        <div id="level10" class="level-box locked">🔒</div>
+        <div id="level11" class="level-box locked">🔒</div>
+        <div id="level12" class="level-box locked">🔒</div>
+
+    </div>
+
+    <div class="game-container">
+
+        <div class="logo-card">
+            <img id="logoImage">
+        </div>
+
+        <input type="text" id="answer" placeholder="Enter brand name">
+
+        <div class="buttons">
+            <button onclick="submitAnswer()">Submit</button>
+            <button onclick="showHint()">Hint</button>
+        </div>
+        <p id="result"></p>
+        <p id="message"></p>
+
+        <div class="xp-bar">
+            <div id="xpProgress"></div>
+        </div>
+
+
+    </div>
+    <div class="extra-buttons">
+
+        <a onclick="showLeaderboard()">
+            <img src="https://cdn-icons-png.freepik.com/512/7321/7321998.png">
+        </a>
+        <a onclick="exitGame()">
+            <img
+                src="https://static.vecteezy.com/system/resources/previews/017/350/109/non_2x/red-cross-button-in-round-shape-png.png">
+        </a>
+
+    </div>
+
+    <div id="popup" class="popup">
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

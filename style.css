@@ -1,0 +1,262 @@
+body{
+    font-family: Arial;
+    margin:0;
+    text-align:center;
+    background:url("https://png.pngtree.com/thumb_back/fh260/background/20240528/pngtree-background-of-monitor-computer-with-online-game-streaming-desktop-image_15734081.jpg") center/cover no-repeat;
+    height:100vh;
+    position:relative;
+}
+
+.timer-box{
+    position:absolute;
+    top:35px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:50px;
+    background:rgba(20,2,37,0.4);
+    color:white;
+    padding:10px 25px;
+    border-radius:10px;
+}
+
+.game-container{
+    position:absolute;
+    top:43.5vh;
+    left:49vw;
+    transform:translate(-50%,-50%);
+    width:35.5vw;
+    height:36vh;
+    background:rgba(11,11,11,0.7);
+    padding:20px;
+    box-shadow:0 0 20px #000;
+}
+
+.logo-card img{
+    width:10vw;
+    height:10vh;
+    object-fit:contain;
+    margin:6px;
+}
+
+input{
+    padding:10px;
+    width:80%;
+    margin:8px;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+
+button{
+    padding:10px 15px;
+    margin:10px;
+    border:1px solid white;
+    background:#722ed6;
+    color:white;
+    cursor:pointer;
+    border-radius:5px;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#1565c0;
+    transform:scale(1.05);
+}
+
+.correct{
+    color:#10e010;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.wrong{
+    color:red;
+    font-size:20px;
+    font-weight:bold;
+}
+
+#message{
+    font-size:20px;
+    font-weight:bold;
+    color:#b1df19;
+}
+
+
+
+.level-panel{
+    position:absolute;
+    right:40px;
+    top:30%;
+    display:grid;
+    grid-template-columns:repeat(4,60px);
+    gap:15px;
+}
+
+.level-box{
+    width:60px;
+    height:60px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    font-weight:bold;
+    border-radius:12px;
+    background:#131313d2;
+    color:#0ff;
+    border:2px solid #0ff;
+    box-shadow:
+        0 0 10px #0ff,
+        0 0 20px #0ff,
+        inset 0 0 10px #0ff;
+}
+
+.locked{
+    color:#555;
+    border:2px solid #555;
+    box-shadow:none;
+}
+
+.active{
+    color:#00ffcc;
+    border:2px solid #00ffcc;
+    box-shadow:
+        0 0 10px #00ffcc,
+        0 0 20px #00ffcc,
+        0 0 40px #00ffcc;
+}
+
+.completed{
+    color:#39ff14;
+    border:2px solid #39ff14;
+    box-shadow:
+        0 0 10px #39ff14,
+        0 0 20px #39ff14,
+        0 0 40px #39ff14;
+    animation:unlock 0.5s;
+}
+
+@keyframes unlock{
+    0%{transform:scale(0.5);}
+    100%{transform:scale(1);}
+}
+
+
+.game-info{
+    position:absolute;
+    top:17vh;
+    left:4vw;
+    display:flex;
+    flex-direction:column;
+    padding:8px 18px;
+    gap:15px;
+    font-size:25px;
+    color:#00ffcc;
+    margin:10px;
+}
+
+.game-info div{
+    background:#000000b9;
+    padding:20px;
+    border:2px solid #06ccf4;
+    border-radius:6px;
+}
+
+.game-info div:hover{
+    box-shadow:0 0 20px cyan;
+}
+
+.level-indicator{
+    font-size:18px;
+    color:#00ffcc;
+    margin-bottom:8px;
+}
+
+.xp-bar{
+    width:80%;
+    height:12px;
+    background:#222;
+    margin:10px auto;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+#xpProgress{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,#00ffff,#00ff66);
+    transition:0.5s;
+}
+
+
+
+#popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:999;
+}
+
+.leaderboard-card{
+    background:#111;
+    color:white;
+    padding:30px;
+    border-radius:12px;
+    width:320px;
+    text-align:center;
+    box-shadow:0 0 20px #00f2ff;
+}
+
+.leaderboard-card h2{
+    margin-bottom:20px;
+}
+
+.leader-row{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 15px;
+    margin:6px 0;
+    background:#1b1b1b;
+    border-radius:6px;
+}
+
+.rank{font-weight:bold;}
+
+.name{
+    flex:1;
+    text-align:left;
+    margin-left:10px;
+}
+
+.score{
+    color:#00ffcc;
+    font-weight:bold;
+}
+
+
+.extra-buttons{
+    position:absolute;
+    bottom:15%;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:20px;
+}
+
+.extra-buttons a img{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    margin:0 15px;
+    border:3px solid white;
+    transition:0.3s;
+}
+
+.extra-buttons a img:hover{
+    transform:scale(1.2);
+    box-shadow:0 0 20px cyan;
+}

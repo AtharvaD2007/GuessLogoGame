@@ -1,0 +1,162 @@
+body{
+    font-family: Arial;
+    text-align:center;
+    margin:0;
+    padding:0;
+    color:white;
+    height:100vh;
+    position:relative;
+    overflow:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:url(https://mir-s3-cdn-cf.behance.net/project_modules/disp/9bc27292880429.5e569ff84e4d0.gif) center/cover no-repeat;
+    filter:blur(4px);
+    z-index:-1;
+}
+
+h1{
+    font-size:70px;
+    margin-top:120px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-shadow:5px 5px 10px #000;
+}
+
+.desc{
+    font-size:20px;
+    margin:-20px 0 30px;
+}
+
+.player-box{
+    margin:0;
+}
+
+#playerName{
+    padding:12px;
+    font-size:16px;
+    border-radius:10px;
+    border:none;
+    width:220px;
+    text-align:center;
+}
+
+.start-btn{
+    padding:12px 25px;
+    font-size:16px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:#ff0077;
+    color:white;
+    transition:0.3s;
+}
+
+.start-btn:hover{
+    background:#ff4da6;
+    transform:scale(1.1);
+}
+
+nav{
+    display:flex;
+    justify-content:center;
+    padding:20px;
+    margin-top:40px;
+}
+
+nav a img{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    margin:0 15px;
+    border:3px solid white;
+    transition:0.3s;
+}
+
+nav a img:hover{
+    transform:scale(1.2);
+    box-shadow:0 0 20px cyan;
+}
+
+.Ex{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    font-weight: bold;
+    color:rgb(204, 249, 4);
+    font-size:18px;
+}
+
+hr{
+    width:50%;
+    margin:0 auto;
+}
+
+/* POPUP */
+
+#popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:999;
+}
+
+.leaderboard-card{
+    background:#111;
+    color:white;
+    padding:30px;
+    border-radius:12px;
+    width:320px;
+    text-align:center;
+    box-shadow:0 0 20px #00f2ff;
+}
+
+.leaderboard-card h2{
+    margin-bottom:20px;
+}
+
+.leader-row{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 15px;
+    margin:6px 0;
+    background:#1b1b1b;
+    border-radius:6px;
+}
+
+.rank{
+    font-weight:bold;
+}
+
+.name{
+    flex:1;
+    text-align:left;
+    margin-left:10px;
+}
+
+.score{
+    color:#00ffcc;
+    font-weight:bold;
+}
+
+button{
+    padding:10px 15px;
+    margin:10px;
+    border:1px solid white;
+    background:#722ed6;
+    color:white;
+    cursor:pointer;
+    border-radius:5px;
+    transition:0.3s;
+}
