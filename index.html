@@ -5,77 +5,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guess The Logo Game</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
 </head>
 
 <body>
 
-    <div class="timer-box">
-        ⏱ <span id="timer">20</span>s
+    <header>
+        <h1><b>Guess <span>The </span>Logo Game!</b></h1>
+        <p class="desc">Test your brand knowledge!</p>
+
+        <h2 id="player"></h2>
+    </header>
+
+    <div class="player-box">
+        <input type="text" placeholder="Enter Player Name" id="playerName">
+        <button class="start-btn" onclick="savePlayer()">Start Game</button>
     </div>
 
-    <div class="game-info">
-        <div>👤 <span id="player">Player</span></div>
-        <div>🎮 Level: <span id="currentLevel">1</span></div>
-        <div>⭐ Score: <span id="score">0</span></div>
-        <div>🔥 Streak: <span id="streak">0</span></div>
-        <div>💡 Hints: <span id="hintCount">3</span></div>
-    </div>
+    <nav>
 
-    <div class="level-panel">
+        <a href="home.html">
+            <img src="image.png">
+        </a>
 
-        <div id="level1" class="level-box active">1</div>
-        <div id="level2" class="level-box locked">🔒</div>
-        <div id="level3" class="level-box locked">🔒</div>
-        <div id="level4" class="level-box locked">🔒</div>
-        <div id="level5" class="level-box locked">🔒</div>
-        <div id="level6" class="level-box locked">🔒</div>
-        <div id="level7" class="level-box locked">🔒</div>
-        <div id="level8" class="level-box locked">🔒</div>
-        <div id="level9" class="level-box locked">🔒</div>
-        <div id="level10" class="level-box locked">🔒</div>
-        <div id="level11" class="level-box locked">🔒</div>
-        <div id="level12" class="level-box locked">🔒</div>
-
-    </div>
-
-    <div class="game-container">
-
-        <div class="logo-card">
-            <img id="logoImage">
-        </div>
-
-        <input type="text" id="answer" placeholder="Enter brand name">
-
-        <div class="buttons">
-            <button onclick="submitAnswer()">Submit</button>
-            <button onclick="showHint()">Hint</button>
-        </div>
-        <p id="result"></p>
-        <p id="message"></p>
-
-        <div class="xp-bar">
-            <div id="xpProgress"></div>
-        </div>
-
-
-    </div>
-    <div class="extra-buttons">
+        <a href="index.html" onclick="startGame(event)">
+            <img src="https://cdn-icons-png.freepik.com/512/10181/10181264.png">
+        </a>
 
         <a onclick="showLeaderboard()">
             <img src="https://cdn-icons-png.freepik.com/512/7321/7321998.png">
         </a>
-        <a onclick="exitGame()">
-            <img
-                src="https://static.vecteezy.com/system/resources/previews/017/350/109/non_2x/red-cross-button-in-round-shape-png.png">
-        </a>
 
+    </nav>
+    <div id="popup"></div>
+
+    <br><br><br>
+
+    <hr>
+
+    <div class="Ex">
+        <p>⌨️ 50+ Logos to Guess!</p>
+        <p>🎮 10 Levels of Fun!</p>
+        <p>🎖️ Global Leaderboard</p>
     </div>
 
-    <div id="popup" class="popup">
-    </div>
+    <hr>
+    <script>
 
-    <script src="script.js"></script>
+        function savePlayer() {
+
+            let name = document.getElementById("playerName").value;
+
+            if (name.trim() === "") {
+                alert("Please enter your name");
+                return;
+            }
+
+            localStorage.setItem("playerName", name);
+            document.getElementById("player").innerText = "Player: " + name;
+            document.querySelector(".player-box").style.display = "none";
+
+        }
+        function startGame(event) {
+
+            let name = document.getElementById("playerName").value;
+
+            if (name.trim() === "") {
+                alert("Please enter your name first!");
+                event.preventDefault();
+                return;
+            }
+
+            localStorage.setItem("playerName", name);
+
+        }
+        function showLeaderboard() {
+
+            let leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
+
+            leaderboard.sort((a, b) => b.score - a.score);
+
+            let popup = document.getElementById("popup");
+
+            let html = `
+<div class="leaderboard-card">
+<h2>🏆 Leaderboard</h2>
+<div class="leaderboard-list">
+`;
+
+            leaderboard.slice(0, 5).forEach((p, i) => {
+
+                let medal = "";
+
+                if (i === 0) medal = "🥇";
+                else if (i === 1) medal = "🥈";
+                else if (i === 2) medal = "🥉";
+                else medal = "⭐";
+
+                html += `
+<div class="leader-row">
+<span class="rank">${medal} ${i + 1}</span>
+<span class="name">${p.name}</span>
+<span class="score">${p.score}</span>
+</div>
+`;
+
+            });
+
+            html += `
+</div>
+<button onclick="closeLeaderboard()">Close</button>
+</div>
+`;
+
+            popup.innerHTML = html;
+            popup.style.display = "flex";
+
+        }
+        function closeLeaderboard() {
+            document.getElementById("popup").style.display = "none";
+        }
+
+
+
+    </script>
 
 </body>
 
